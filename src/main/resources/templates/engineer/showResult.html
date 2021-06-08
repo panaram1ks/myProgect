@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+
+<body>
+    <h1>hi Result</h1>
+
+    <table class="table">
+        <thead align="center">
+            <tr>
+                <th text="Листов на первые половины" rowspan="2"></th>
+                <th text="Листов на вторые половины" rowspan="2"></th>
+            </tr>
+        </thead>
+        <tbody align="center">
+            <tr>
+                <td th:text="*{resultDTO.sheets1}"></td>
+                <td th:text="*{resultDTO.sheets2}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

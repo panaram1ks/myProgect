@@ -1,0 +1,86 @@
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 400px;
+    padding: 40px;
+    background: rgba(0,0,0,.6);
+
+    box-sizing: border-box;
+    box-shadow: 10px 25px 25px rgba(0,0,0,.8);
+    border-radius: 15px;
+}
+.box h2
+{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+.box .inputBox
+{
+    position: relative;
+}
+.box .inputBox label
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 20px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.box .inputBox input
+{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;    
+}
+#name:focus ~ label[for="name"],
+#password:focus ~ label[for="password"]
+{
+    top: -25px;
+    left: 0;
+    color: hsl(49, 98%, 48%);
+    font-size: 14px;
+}
+#name:valid ~ label[for="name"],
+#password:valid ~ label[for="password"]
+{
+    top: -25px;
+    left: 0;
+    color: hsl(49, 98%, 48%);
+    font-size: 14px;
+}
+.box button[type="submit"]
+{    
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: hsl(49, 98%, 48%);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+}
+.flag
+{
+    border-radius: 50%;
+}
+.flex-container
+{
+    display: flex;
+}

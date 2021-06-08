@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/checkName.js}"></script>
+</head>
+<body>
+
+    <form class="col-4 m-md-5 p-3 border border-dark rounded-3 bg-dark"
+          th:method="post" th:action="@{/update/{id}(id=${userDTO.id})}" th:object="${userDTO}">
+        <div class="mb-3">
+            <label class="form-label text-secondary" for="name" th:text="#{user.name}"></label>
+            <input class="form-control bg-secondary border-dark" type="text" id="name" th:field="*{name}" onblur="checkIfFree()" th:name="name"/>
+            <div id="msg" style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <div id="err" style="color: red">[[#{uniqueName.message}]]</div>
+            <div id="suc" style="color: green">[[#{name.not.exists}]]</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-secondary" th:text="#{user.password}"></label>
+            <input class="form-control bg-secondary border-dark" type="text" id="password" th:field="*{password}" th:name="password"/>
+            <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-secondary" th:text="#{user.pas.confirm} + ':'"></label>
+            <input class="form-control bg-secondary border-dark" type="password" id="confirmPassword" th:field="*{confirmPassword}"/>
+            <div style="color: red" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+<!--            <div style="color: red" th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}"></div>-->
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-secondary" th:text="#{user.roles}"></label>
+            <select class="form-select bg-secondary border-dark" aria-label="Default select example" th:field="*{roles}">
+                <option th:each="role : ${roles}" th:value="${role}" th:text="#{${role}}">
+                </option>
+            </select>
+            <div style="color: red" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+        </div>
+    </form>
+
+</body>
+</html>

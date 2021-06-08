@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/loginAnimateBackground.css}"/>
+    <link rel="stylesheet" th:href="@{/css/loginStyle.css}"/>
+</head>
+<body>
+    <div class="animation-area">
+        <ul class="box-area">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="box">
+        <div th:insert="fragments/lang.html :: languague"></div>
+        <h2 th:text="#{login.enter}"></h2>
+        <div th:if="${param.logout}">
+            <div style="color: lawngreen" th:text="#{shutdown}"></div>
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div class="inputBox">
+                <input required id="name" type="text" name="username"/>
+                <label for="name" th:text="#{login.login}"></label>
+            </div>
+            <div th:if="${param.error}">
+                <div style="color: crimson" th:text="#{user.auth.error}"></div>
+            </div>
+            <div class="inputBox">
+                <input required id="password" type="password" name="password"/>
+                <label for="password" th:text="#{login.password}"></label>
+            </div>
+            <button type="submit" th:text="#{login.submit}"></button>
+        </form>
+
+    </div>
+</body>
+</html>

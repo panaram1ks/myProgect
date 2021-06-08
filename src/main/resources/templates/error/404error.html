@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/header :: headerFragment(~{::title}, ~{})">
+	<title th:text="${status}"></title>
+</head>
+<body>
+	<div>
+		<h1 th:text="#{page.not.found}"></h1>
+		<br>
+		<a th:href="@{/cabinet}" th:text="#{to.cab}"></a>
+	</div>
+	<span sec:authorize="isAuthenticated()">
+		<div th:insert="~{fragments/footer :: footer}"></div>
+	</span>
+	<span sec:authorize="!isAuthenticated()">
+		<a th:text="#{to.main.page}" th:href="@{/}"></a>
+	</span>
+</body>
+</html>

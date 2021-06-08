@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="flex-container" th:fragment="languague"
+         th:with="currentUrl=(${#httpServletRequest.requestURI})">
+        <span>
+            <a th:href="@{${currentUrl}(lang=en)}">
+                    <img class="flag" th:src="@{/img/FlagEn.jpg}" width="45px" height="45px"
+                         th:alt="english">
+            </a>
+        </span>
+        <span>
+            <a th:href="@{${currentUrl}(lang=ru)}">
+                    <img class="flag" th:src="@{/img/FlagRu.jpg}" width="45px" height="45px"
+                         th:alt="русский">
+            </a>
+        </span>
+    </div>
+
+</body>
+</html>

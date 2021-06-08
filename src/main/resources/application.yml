@@ -1,0 +1,61 @@
+#-------------------------------- for customise error pages
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+#  profiles:
+#    active: "prod"
+  resources:
+    add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+   # for use @DeleteMapping @PutMapping @PathMapping
+    hiddenmethod:
+      filter:
+        enabled=true:
+  #-----------------------------------------------
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+  datasource:
+    platform: mysql #postgres
+    driver-class-name: com.mysql.jdbc.Driver #org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/belbanka2
+    #jdbc:postgresql://localhost:5432/belbanka2
+    username: root #adm
+    password: root #adm
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+      jdbc:
+        lob:
+          non-contextual-creation: true
+    show-sql: true
+    #database: postgresql
+    database: mysql
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #org.hibernate.dialect.MySQL5Dialect
+    #  open-in-view: false
+    generate-ddl: true
+    # fou LAZY initialisation
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+  # default size for spring boot is 10 MB
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+max-size: 5000000
+max-files-size: 10000000
+
+path:
+  to:
+    imgs: d:\\tmp\\Sources\\photos\\
+    files: d:\\tmp\\Sources\\files\\
+
+numbers: 1, 2, 3, 4, 5, 6, 7, 8

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabinet admin</title>
+    <link rel="stylesheet" href="css/admin/admin.css">
+    <link rel="stylesheet" href="css/animate/animate.min.css">
+    <script src="js/wow/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body class="bg-warning">
+    <button class="wow fadeInLeft bigButton"><div th:insert="fragments/footer.html :: footer"></div></button>
+    <button class="wow fadeInRight bigButton"><a th:text="#{users.list}" th:href="@{/allUsers}"></a></button>
+    <button class="wow fadeInLeft bigButton"><a th:text="#{users.create}" th:href="@{/createUser}"></a></button>
+    <button class="wow fadeInRight bigButton"><a th:text="#{users.actions} + ' !!!нужно доделать!!!'" href="#"></a></button>
+</body>
+</html>
